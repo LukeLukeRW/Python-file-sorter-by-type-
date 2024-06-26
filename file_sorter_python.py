@@ -2,34 +2,35 @@ import os
 import shutil
 import time
 
-def main(i,video_formats,image_formats,pdf_formats):
+def main(j,video_formats,image_formats,pdf_formats):
+    i = j.split(".")[-1]
     #docx files
-    if ".docx" in i or ".doc" in i:
-        Download_docx(i)
+    if "docx" in i or "doc" in i:
+        Download_docx(j)
 
     #Video files
-    elif f".{i}" in video_formats:
-        Download_video(i)
+    elif i.lower() in video_formats:
+        Download_video(j)
 
     #image files
-    elif f".{i}" in image_formats:
-        Download_image(i)
+    elif i.lower() in image_formats:
+        Download_image(j)
     
     #pdf files
-    elif f".{i}" in pdf_formats:
-        Download_pdf(i)
+    elif i.lower() in pdf_formats:
+        Download_pdf(j)
 
     #powerpoint files
-    elif i in ".ppt":
-        Download_powerpoint(i)
+    elif "ppt" in i:
+        Download_powerpoint(j)
     
     #exe files
-    elif i in ".exe":
-        Download_exe(i)
+    elif "exe" in i:
+        Download_exe(j)
 
     #any other files like zip files or something any miscellaneous files if you will...
     else:
-        Download_other(i)
+        Download_miscellaneous(j)
 
 def Download_docx(i):
     shutil.move(f"C:\\Users\\ldogb\\Downloads\\{i}",r"C:\Users\ldogb\Desktop\Downloads_sorted\docx")
@@ -43,22 +44,19 @@ def Download_powerpoint(i):
     shutil.move(f"C:\\Users\\ldogb\\Downloads\\{i}",r"C:\Users\ldogb\Desktop\Downloads_sorted\powerpoint")
 def Download_exe(i):
     shutil.move(f"C:\\Users\\ldogb\\Downloads\\{i}",r"C:\Users\ldogb\Desktop\Downloads_sorted\execu")
-def Download_other(i):
+def Download_miscellaneous(i):
     shutil.move(f"C:\\Users\\ldogb\\Downloads\\{i}",r"C:\Users\ldogb\Desktop\Downloads_sorted\miscellaneous")
 
 if __name__ == '__main__':
     
     video_formats = ["mp4", "avi", "mov", "wmv", "flv", "mkv", "webm", "mpeg"]
-    image_formats = ["jpeg", "png", "gif", "bmp", "tiff", "svg", "webp", "heif"]
+    image_formats = ["jpg", "png", "gif", "bmp", "tiff", "svg", "webp", "heif"]
     pdf_formats = ['pdf', 'html']
 
     dir = r"C:\Users\ldogb\Downloads"
     while 1:
-        time.sleep(20)
+        time.sleep(600)
         files = os.listdir(dir)
         if files:
             for i in files:
                 main(i,video_formats,image_formats,pdf_formats)
-
-        
-
