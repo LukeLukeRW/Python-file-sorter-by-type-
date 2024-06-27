@@ -17,3 +17,4 @@ including / named:
 - video
 
 everytime you download a file (in 20 seconds or less) it'll move to the folder so it's nice and neat :)
+yuh make that bad boy a shortcut and an exe and den chuck it in there at let the magic happen
