@@ -55,7 +55,7 @@ if __name__ == '__main__':
 
     dir = r"C:\Users\ldogb\Downloads"
     while 1:
-        time.sleep(600)
+        time.sleep(60)
         files = os.listdir(dir)
         if files:
             for i in files:
